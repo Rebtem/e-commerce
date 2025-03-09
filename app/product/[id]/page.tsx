@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import Link from "next/link";
 
 // Mock product data (Replace this with API data in the future)

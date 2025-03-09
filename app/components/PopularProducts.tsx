@@ -1,4 +1,4 @@
-import ProductCard from "./ProductCard";
+
 const PopularProducts: React.FC = () => {
     const products = [
         { id:1, title: "Product 1", price: 100, image: "/1.jpg" },

@@ -31,6 +31,7 @@ export default function Footer() {
             <a href="#" className="text-gray-400 hover:text-white"><FaFacebook size={24} /></a>
             <a href="#" className="text-gray-400 hover:text-white"><FaTwitter size={24} /></a>
             <a href="#" className="text-gray-400 hover:text-white"><FaInstagram size={24} /></a>
+            <a href="#" className="text-gray-400 hover:text-white"><FaLinkedin size={24} /></a>
           </div>
           <h3 className="text-lg font-semibold mt-4">Subscribe</h3>
           <form className="mt-2">
