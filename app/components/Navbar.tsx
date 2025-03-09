@@ -11,6 +11,7 @@ export default function Navbar() {
     "🔥 Limited Time Offer: Save Big on Electronics! 🔥",
     "💥 Flash Sale: Get Your Favorite Items at Unbeatable Prices! 💥",
   ];
+  
   const [index, setIndex] = useState(0);
   const { cart } = useCart(); // Get cart data from context
 
@@ -18,8 +19,9 @@ export default function Navbar() {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % messages.length);
     }, 3000); // Changes message every 3 seconds
+
     return () => clearInterval(interval);
-  }, []);
+  }, [messages.length]); // ✅ Added messages.length as a dependency
 
   return (
     <nav className="relative bg-gray-900 text-white p-4 shadow-md overflow-hidden">
