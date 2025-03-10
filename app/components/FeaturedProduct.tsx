@@ -1,56 +1,49 @@
-"use client";
-
 import Image from "next/image";
-import Link from "next/link";
 
-const featuredProducts = [
-  {
-    id: 1,
-    name: "iphone",
-    price: "$899",
-    image: "/feat/iphone.png",
-  },
-  {
-    id: 2,
-    name: "Samsung Phone",
-    price: "$1,499",
-    image: "/feat/SAMSUG.jpg",
-  },
-  {
-    id: 3,
-    name: "Generator",
-    price: "$199",
-    image: "/feat/GEN.png",
-  },
-];
+const FeaturedProduct: React.FC = () => {
+  const products = [
+    { id: 1, title: "Product 1", price: 100, image: "/1.jpg" },
+    { id: 2, title: "Blender", price: 120, image: "/Blender.png" },
+    { id: 3, title: "Electric Jug", price: 500, image: "/Electricjug.png" },
+    { id: 4, title: "Cooker", price: 200, image: "/cooker.jpg" },
+    { id: 5, title: "Iron", price: 100, image: "/iron.jpg" },
+    { id: 6, title: "Kettle", price: 100, image: "/kettle.jpg" },
+    { id: 7, title: "Kettle 2", price: 100, image: "/kettle2.jpg" },
+    { id: 8, title: "Microwave", price: 100, image: "/Microwave.png" },
+    { id: 9, title: "Swallow Maker", price: 100, image: "/swallow-maker.jpg" }, // Fixed filename
+    { id: 10, title: "Computer", price: 100, image: "/computer.jpg" },
+  ];
 
-
-const FeaturedProduct = () => {
   return (
-    <section className="my-12 px-4">
-      <h2 className="text-2xl font-bold text-center mb-6">Featured Products</h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {featuredProducts.map((product) => (
-          <div key={product.id} className="border rounded-lg p-4 shadow-lg hover:shadow-xl transition">
-            <Image
-              src={product.image}
-              alt={product.name}
-              width={300}
-              height={200}
-              className="w-full h-64 object-contain"
-            />
-            <h3 className="text-lg font-semibold mt-3">{product.name}</h3>
-            <p className="text-gray-600">{product.price}</p>
-            <Link href={`/product/${product.id}`}>
-              <button className="mt-3 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                View Details
-              </button>
-            </Link>
+    <div className="container mx-auto p-6">
+      <h1 className="text-3xl font-bold text-center text-gray-800">
+        Featured Products
+      </h1>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 p-4">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="border p-4 rounded-lg shadow-md text-center"
+          >
+            <div className="relative w-full h-48">
+              <Image
+                src={product.image}
+                alt={product.title}
+                layout="fill"
+                objectFit="cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                className="rounded-md"
+              />
+            </div>
+            <h2 className="text-xl font-semibold mt-2">{product.title}</h2>
+            <p className="text-lg text-gray-600">${product.price}</p>
+            <button className="mt-4 bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600">
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
