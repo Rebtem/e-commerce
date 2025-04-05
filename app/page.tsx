@@ -7,7 +7,10 @@ import FeaturedProduct from "./components/FeaturedProduct";
 const Homepage = () => {
     return (
         <div>
-            <Slider />
+            <div className="mt-0 pt-0 mb-0 pb-0">
+  <Slider />
+    </div>
+        
             
             <section>
              

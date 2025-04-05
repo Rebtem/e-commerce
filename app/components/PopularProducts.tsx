@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 const PopularProducts: React.FC = () => {
@@ -30,9 +29,9 @@ const PopularProducts: React.FC = () => {
               <Image
                 src={product.image}
                 alt={product.title}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-md"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover rounded-md"
               />
             </div>
             <h2 className="text-xl font-semibold mt-2">{product.title}</h2>

@@ -20,7 +20,7 @@ const images = [
 
 const Slider = () => {
   return (
-    <div className="w-full">
+    <div className="w-full max-w-screen overflow-hidden"> {/* ✅ Full width */}
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}
@@ -29,19 +29,17 @@ const Slider = () => {
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000 }}
         loop={true}
-        className="w-full h-full"
+        className="w-full"
       >
         {images.map((src, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[400px] flex justify-center items-center">
+            <div className="relative w-full h-[200px] sm:h-[250px] md:h-[350px] lg:h-[450px] xl:h-[500px]">
               <Image
                 src={src}
                 alt={`Slide ${index + 1}`}
-                width={1700}
-                height={400}
-                style={{ objectFit: "contain" }} // Corrected objectFit
-                priority={index === 0} // Load first image faster
-                className="w-full h-auto"
+                fill
+                className="w-full h-full object-cover" // ✅ No cropping, full width
+                priority={index === 0}
               />
             </div>
           </SwiperSlide>
